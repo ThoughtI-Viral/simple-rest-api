@@ -7,7 +7,7 @@ let app = express();
 
 app.use(express.json());
 app.use(express.static("public"));
-app.use("/", router);
+app.use("/api/v1", router);
 
 app.listen(8080, function () {
     console.log("App listening on port 8080...");
