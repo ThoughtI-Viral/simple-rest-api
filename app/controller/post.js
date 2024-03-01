@@ -1,8 +1,18 @@
 let query = require("../model/db.js");
 
 async function get(req, res) {
-    let result = await query("SELECT * FROM posts_table");
-    res.json({
+    let result;
+
+    try {
+        result = await query("SELECT * FROM posts_table");
+    } catch (error) {
+        return res.status(500).json({
+            isSuccess: false,
+            message: error.sqlMessage,
+        });
+    }
+
+    return res.status(200).json({
         isSuccess: true,
         message: "",
         data: result,
@@ -11,20 +21,27 @@ async function get(req, res) {
 
 async function getOne(req, res) {
     let id = req.params.id;
+    let result;
 
-    let result = await query("SELECT * FROM posts_table WHERE postId = ?", [
-        id,
-    ]);
+    try {
+        result = await query("SELECT * FROM posts_table WHERE postId = ?", [
+            id,
+        ]);
+    } catch (error) {
+        return res.status(500).json({
+            isSuccess: false,
+            message: error.sqlMessage,
+        });
+    }
 
     if (result.length === 0) {
-        res.json({
+        return res.status(404).json({
             isSuccess: false,
             message: "Post not found",
         });
-        return;
     }
 
-    res.json({
+    return res.status(200).json({
         isSuccess: true,
         message: "",
         data: result,
@@ -42,28 +59,37 @@ async function post(req, res) {
         return;
     }
 
-    let result = await query(
-        "INSERT INTO posts_table (userId, title, description) VALUES (?, ?, ?)",
-        [userId, title, description]
-    );
-    if (result.affectedRows) {
-        res.json({
-            isSuccess: true,
-            message: "Post added",
-            data: {
-                postId: result.insertId,
-                userId,
-                title,
-                description,
-            },
+    let result;
+
+    try {
+        result = await query(
+            "INSERT INTO posts_table (userId, title, description) VALUES (?, ?, ?)",
+            [userId, title, description]
+        );
+    } catch (error) {
+        return res.status(500).json({
+            isSuccess: false,
+            message: error.sqlMessage,
         });
-        return;
-    } else {
-        res.json({
+    }
+
+    if (!result.affectedRows) {
+        return res.status(500).json({
             isSuccess: false,
             message: "Failed to add post",
         });
     }
+
+    return res.status(201).json({
+        isSuccess: true,
+        message: "Post added",
+        data: {
+            postId: result.insertId,
+            userId,
+            title,
+            description,
+        },
+    });
 }
 
 async function put(req, res) {
@@ -78,51 +104,65 @@ async function put(req, res) {
         return;
     }
 
-    let result = await query(
-        "UPDATE posts_table SET `userId`=?, `title`=?, `description` = ? WHERE `postId` = ?",
-        [userId, title, description, id]
-    );
+    let result;
 
-    if (result.affectedRows) {
-        res.json({
-            isSuccess: true,
-            message: "Post updated",
-            data: {
-                postID: id,
-                userId,
-                title,
-                description,
-            },
+    try {
+        result = await query(
+            "UPDATE posts_table SET `userId`=?, `title`=?, `description` = ? WHERE `postId` = ?",
+            [userId, title, description, id]
+        );
+    } catch (error) {
+        return res.status(500).json({
+            isSuccess: false,
+            message: error.sqlMessage,
         });
-    } else {
-        res.json({
+    }
+
+    if (!result.affectedRows) {
+        return res.status(500).json({
             isSuccess: false,
             message: "Failed to update post",
         });
     }
+
+    return res.status(200).json({
+        isSuccess: true,
+        message: "Post updated",
+        data: {
+            postId: id,
+            userId,
+            title,
+            description,
+        },
+    });
 }
 
 async function del(req, res) {
     let id = req.params.id;
+    let result;
 
-    let result = await query("DELETE FROM posts_table WHERE `postId` = ?", [
-        id,
-    ]);
-
-    if (result.affectedRows) {
-        res.json({
-            isSuccess: true,
-            message: "Post deleted",
-            data: {
-                postId: id,
-            },
-        });
-    } else {
-        res.json({
+    try {
+        result = await query("DELETE FROM posts_table WHERE `postId` = ?", [
+            id,
+        ]);
+    } catch (error) {
+        return res.status(500).json({
             isSuccess: false,
-            message: "Failed to deleted post",
+            message: error.sqlMessage,
         });
     }
+
+    if (!result.affectedRows) {
+        return res.status(500).json({
+            isSuccess: false,
+            message: "Failed to delete post",
+        });
+    }
+
+    return res.status(200).json({
+        isSuccess: true,
+        message: "Post deleted",
+    });
 }
 
 module.exports = {
