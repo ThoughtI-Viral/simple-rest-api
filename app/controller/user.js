@@ -1,14 +1,14 @@
-let query = require("../model/db.js");
+const { Users } = require("../models/index");
 
 async function get(req, res) {
     let result;
 
     try {
-        result = await query("SELECT * FROM users_table");
+        result = await Users.findAll();
     } catch (error) {
         return res.status(500).json({
             isSuccess: false,
-            message: error.sqlMessage,
+            message: error.message,
         });
     }
 
@@ -24,17 +24,17 @@ async function getOne(req, res) {
     let result;
 
     try {
-        result = await query("SELECT * FROM users_table WHERE userId = ?", [
-            id,
-        ]);
+        result = await Users.findOne({
+            where: { userId: id },
+        });
     } catch (error) {
         return res.status(500).json({
             isSuccess: false,
-            message: error.sqlMessage,
+            message: error.message,
         });
     }
 
-    if (result.length === 0) {
+    if (!result) {
         return res.status(404).json({
             isSuccess: false,
             message: "User not found",
@@ -62,17 +62,17 @@ async function post(req, res) {
 
     // check if email already exists
     try {
-        result = await query("SELECT * FROM users_table WHERE email = ?", [
-            email,
-        ]);
+        result = await Users.findOne({
+            where: { email },
+        });
     } catch (error) {
         return res.status(500).json({
             isSuccess: false,
-            message: error.sqlMessage,
+            message: error.message,
         });
     }
 
-    if (result.length > 0) {
+    if (result) {
         return res.status(400).json({
             isSuccess: false,
             message: "Email already exists",
@@ -80,18 +80,15 @@ async function post(req, res) {
     }
 
     try {
-        result = await query(
-            "INSERT INTO users_table (name, email) VALUES (?, ?)",
-            [name, email]
-        );
+        result = await Users.create({ name, email });
     } catch (error) {
         return res.status(500).json({
             isSuccess: false,
-            message: error.sqlMessage,
+            message: error.message,
         });
     }
 
-    if (!result.affectedRows) {
+    if (!result) {
         return res.status(500).json({
             isSuccess: false,
             message: "Failed to add user",
@@ -102,7 +99,7 @@ async function post(req, res) {
         isSuccess: true,
         message: "User added",
         data: {
-            userId: result.insertId,
+            userId: result.userId,
             name,
             email,
         },
@@ -123,18 +120,15 @@ async function put(req, res) {
     let result;
 
     try {
-        result = await query(
-            "UPDATE users_table SET `name`=?, `email`=? WHERE `userId` = ?",
-            [name, email, id]
-        );
+        result = await Users.update({ name, email }, { where: { userId: id } });
     } catch (error) {
         return res.status(500).json({
             isSuccess: false,
-            message: error.sqlMessage,
+            message: error.message,
         });
     }
 
-    if (!result.affectedRows) {
+    if (result[0] === 0) {
         return res.status(500).json({
             isSuccess: false,
             message: "Failed to update user",
@@ -157,17 +151,17 @@ async function del(req, res) {
     let result;
 
     try {
-        result = await query("DELETE FROM users_table WHERE `userId` = ?", [
-            id,
-        ]);
+        result = await Users.destroy({
+            where: { userId: id },
+        });
     } catch (error) {
         return res.status(500).json({
             isSuccess: false,
-            message: error.sqlMessage,
+            message: error.message,
         });
     }
 
-    if (!result.affectedRows) {
+    if (result === 0) {
         return res.status(500).json({
             isSuccess: false,
             message: "Failed to delete user",
