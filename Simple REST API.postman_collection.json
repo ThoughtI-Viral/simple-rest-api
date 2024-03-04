@@ -1,0 +1,1509 @@
+{
+	"info": {
+		"_postman_id": "fccb2033-4f04-4ed7-8674-635b27fde25f",
+		"name": "Simple REST API",
+		"description": "- REST API for user and post",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23558268"
+	},
+	"item": [
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "get all user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/users",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users"
+							]
+						},
+						"description": "- Get details of all users"
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/users",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "752"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2f0-tIwz8S827uv1HHq7rQil1Vyv+f8\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Mar 2024 09:46:14 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"isSuccess\": true,\n    \"message\": \"\",\n    \"data\": [\n        {\n            \"userId\": 1,\n            \"name\": \"viral updated\",\n            \"email\": \"viral.gajera@gmail.com\",\n            \"createdAt\": \"2024-03-01T14:12:19.000Z\",\n            \"updatedAt\": \"2024-03-04T07:16:56.000Z\"\n        },\n        {\n            \"userId\": 2,\n            \"name\": \"raj chhadia\",\n            \"email\": \"raj.chadia@gmail.com\",\n            \"createdAt\": \"2024-03-01T14:12:47.000Z\",\n            \"updatedAt\": \"2024-03-01T14:12:47.000Z\"\n        },\n        {\n            \"userId\": 5,\n            \"name\": \"elon musk\",\n            \"email\": \"elon.musk@gmail.com\",\n            \"createdAt\": \"2024-03-04T07:14:20.000Z\",\n            \"updatedAt\": \"2024-03-04T07:14:20.000Z\"\n        },\n        {\n            \"userId\": 6,\n            \"name\": \"bill gates\",\n            \"email\": \"bill.gates@gmail.com\",\n            \"createdAt\": \"2024-03-04T07:16:01.000Z\",\n            \"updatedAt\": \"2024-03-04T07:16:01.000Z\"\n        },\n        {\n            \"userId\": 8,\n            \"name\": \"viral new\",\n            \"email\": \"viral.new@gmail.com\",\n            \"createdAt\": \"2024-03-04T09:15:39.000Z\",\n            \"updatedAt\": \"2024-03-04T09:15:39.000Z\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "get one user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/users/20",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"20"
+							]
+						},
+						"description": "- Get detail of one user based on the id"
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/users/5",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"5"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "178"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"b2-KJ/1gLGIHEPb7i9dMYk3fIHPtkE\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Mar 2024 09:47:19 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"isSuccess\": true,\n    \"message\": \"\",\n    \"data\": {\n        \"userId\": 5,\n        \"name\": \"elon musk\",\n        \"email\": \"elon.musk@gmail.com\",\n        \"createdAt\": \"2024-03-04T07:14:20.000Z\",\n        \"updatedAt\": \"2024-03-04T07:14:20.000Z\"\n    }\n}"
+						},
+						{
+							"name": "user not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/users/20",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users",
+										"20"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "46"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2e-g2QlvMi/i1I7Q6ePAGH5M42o7pU\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Mar 2024 09:48:28 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"isSuccess\": false,\n    \"message\": \"User not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "create user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"viral gajera\",\r\n    \"email\": \"viral.gajera220@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/users",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users"
+							]
+						},
+						"description": "- Add new user to database"
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"viral gajera\",\r\n    \"email\": \"viral.gajera218@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/users",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"users"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "119"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"77-7Etl0ZmCJvBGHTQ/Llc33V1ge24\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Mar 2024 09:50:03 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"isSuccess\": true,\n    \"message\": \"User added\",\n    \"data\": {\n        \"userId\": 9,\n        \"name\": \"viral gajera\",\n        \"email\": \"viral.gajera218@gmail.com\"\n    }\n}"
+						},
+						{
+							"name": "Bad Request: Email is required",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/users",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "62"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3e-3IuCkZPt5/CbRRdhf61GCx9BaC0\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Mar 2024 09:50:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"isSuccess\": false,\n    \"message\": \"Bad Request: Email is required\"\n}"
+						},
+						{
+							"name": "Bad Request: Name and email are required",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"viral.gajera219@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/users",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "72"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"48-Onjo4SPcxzg60UpznBe/1fE4iUo\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Mar 2024 09:51:59 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"isSuccess\": false,\n    \"message\": \"Bad Request: Name and email are required\"\n}"
+						}
+					]
+				},
+				{
+					"name": "update user details",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"viral updated\",\r\n    \"email\": \"viral.gajera@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/users/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"1"
+							]
+						},
+						"description": "- Update detail of existing user"
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"viral updated\",\r\n    \"email\": \"viral.g@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/users/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "116"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"74-34nwwIkRwLwBzRMkGLDprzZLwdI\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Mar 2024 09:52:45 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"isSuccess\": true,\n    \"message\": \"User updated\",\n    \"data\": {\n        \"userId\": \"1\",\n        \"name\": \"viral updated\",\n        \"email\": \"viral.g@gmail.com\"\n    }\n}"
+						},
+						{
+							"name": "Email already exists",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"viral updated\",\r\n    \"email\": \"viral.g@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/users/1",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users",
+										"1"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "52"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"34-Fq3nbhes9Ch4abuxoF8to5cU31o\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Mar 2024 09:53:14 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"isSuccess\": false,\n    \"message\": \"Email already exists\"\n}"
+						},
+						{
+							"name": "Bad Request: Email is required",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/users/1",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users",
+										"1"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "62"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3e-3IuCkZPt5/CbRRdhf61GCx9BaC0\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Mar 2024 09:53:32 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"isSuccess\": false,\n    \"message\": \"Bad Request: Email is required\"\n}"
+						},
+						{
+							"name": "Bad Request: Name and email are required",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"viral.ga@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/users/1",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users",
+										"1"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "72"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"48-Onjo4SPcxzg60UpznBe/1fE4iUo\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Mar 2024 09:54:00 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"isSuccess\": false,\n    \"message\": \"Bad Request: Name and email are required\"\n}"
+						}
+					]
+				},
+				{
+					"name": "delete user",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/users/5",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"5"
+							]
+						},
+						"description": "- Delete user based on id"
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/users/10",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"10"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "66"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"42-5BKdr4c2w8VmmYVNlNDwXsHinIE\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Mar 2024 09:55:28 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"isSuccess\": true,\n    \"message\": \"User deleted\",\n    \"data\": {\n        \"userId\": \"10\"\n    }\n}"
+						},
+						{
+							"name": "User not found",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/users/10",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users",
+										"10"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "46"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2e-g2QlvMi/i1I7Q6ePAGH5M42o7pU\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Mar 2024 10:04:10 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"isSuccess\": false,\n    \"message\": \"User not found\"\n}"
+						}
+					]
+				}
+			],
+			"description": "> For users"
+		},
+		{
+			"name": "posts",
+			"item": [
+				{
+					"name": "get all posts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/posts",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"posts"
+							]
+						},
+						"description": "- Get details of all posts"
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/posts",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"posts"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "790"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"316-zhJg3yFYh1T8V7pCcckAzzx1QQY\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Mar 2024 10:05:05 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"isSuccess\": true,\n    \"message\": \"\",\n    \"data\": [\n        {\n            \"postId\": 1,\n            \"userId\": 1,\n            \"title\": \"My post from api updated\",\n            \"description\": \"My post description from api upated\",\n            \"createdAt\": \"2024-03-01T14:47:43.000Z\",\n            \"updatedAt\": \"2024-03-01T13:59:04.000Z\",\n            \"User\": {\n                \"name\": \"viral updated\",\n                \"email\": \"viral.gajera@gmail.com\"\n            }\n        },\n        {\n            \"postId\": 5,\n            \"userId\": 1,\n            \"title\": \"My post from api\",\n            \"description\": \"My post description from api\",\n            \"createdAt\": \"2024-03-04T07:35:23.000Z\",\n            \"updatedAt\": \"2024-03-04T07:35:23.000Z\",\n            \"User\": {\n                \"name\": \"viral updated\",\n                \"email\": \"viral.gajera@gmail.com\"\n            }\n        },\n        {\n            \"postId\": 7,\n            \"userId\": 1,\n            \"title\": \"My post from api created at 1:32pm\",\n            \"description\": \"My post description from api\",\n            \"createdAt\": \"2024-03-04T08:02:20.000Z\",\n            \"updatedAt\": \"2024-03-04T08:02:20.000Z\",\n            \"User\": {\n                \"name\": \"viral updated\",\n                \"email\": \"viral.gajera@gmail.com\"\n            }\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "get one post",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/posts/2",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"posts",
+								"2"
+							]
+						},
+						"description": "- Get detail of post based on id"
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/posts/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"posts",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "292"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"124-mah4Ft7/rrr8YpEYZuVWzcPSmU4\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Mar 2024 10:05:25 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"isSuccess\": true,\n    \"message\": \"\",\n    \"data\": {\n        \"postId\": 1,\n        \"userId\": 1,\n        \"title\": \"My post from api updated\",\n        \"description\": \"My post description from api upated\",\n        \"createdAt\": \"2024-03-01T14:47:43.000Z\",\n        \"updatedAt\": \"2024-03-01T13:59:04.000Z\",\n        \"User\": {\n            \"name\": \"viral updated\",\n            \"email\": \"viral.gajera@gmail.com\"\n        }\n    }\n}"
+						},
+						{
+							"name": "post not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/posts/2",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"posts",
+										"2"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "46"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2e-cQMm7DOASLxCdvbrCeA+o9QJTX0\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Mar 2024 10:05:38 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"isSuccess\": false,\n    \"message\": \"Post not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "create post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\" : \"1\",\r\n    \"title\": \"7 Reason you should invest in silver\",\r\n    \"description\": \"My post description from api\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/posts",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"posts"
+							]
+						},
+						"description": "- Create new post"
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userId\" : \"1\",\r\n    \"title\": \"7 Reason you should invest in silver\",\r\n    \"description\": \"My post description from api\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/posts",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"posts"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "166"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"a6-WtFOHXI0TXxWyVuKKOofbU3itfU\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Mar 2024 10:06:31 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"isSuccess\": true,\n    \"message\": \"Post added\",\n    \"data\": {\n        \"postId\": 8,\n        \"userId\": \"1\",\n        \"title\": \"7 Reason you should invest in silver\",\n        \"description\": \"My post description from api\"\n    }\n}"
+						},
+						{
+							"name": "Duplicate post",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userId\" : \"1\",\r\n    \"title\": \"7 Reason you should invest in silver\",\r\n    \"description\": \"My post description from api\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/posts",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"posts"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "52"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"34-ZbYVaorAFH3A1jboykfgqzEXx9g\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Mar 2024 10:06:51 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"isSuccess\": false,\n    \"message\": \"Duplicate post title\"\n}"
+						}
+					]
+				},
+				{
+					"name": "update post details",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\" : \"1\",\r\n    \"title\": \"This is updated post title\",\r\n    \"description\": \"My post description from api upated\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/posts/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"posts",
+								"1"
+							]
+						},
+						"description": "- Update post based on id"
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userId\" : \"1\",\r\n    \"title\": \"This is updated post title\",\r\n    \"description\": \"My post description from api upated\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/posts/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"posts",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "167"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"a7-k2MSDSf0ZLxhlpT+9qlEGY2+fKo\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Mar 2024 10:07:29 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"isSuccess\": true,\n    \"message\": \"Post updated\",\n    \"data\": {\n        \"postId\": \"1\",\n        \"userId\": \"1\",\n        \"title\": \"This is updated post title\",\n        \"description\": \"My post description from api upated\"\n    }\n}"
+						},
+						{
+							"name": "Duplicate post title",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userId\" : \"1\",\r\n    \"title\": \"This is updated post title\",\r\n    \"description\": \"My post description from api upated\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/posts/1",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"posts",
+										"1"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "52"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"34-ZbYVaorAFH3A1jboykfgqzEXx9g\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Mar 2024 10:07:38 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"isSuccess\": false,\n    \"message\": \"Duplicate post title\"\n}"
+						}
+					]
+				},
+				{
+					"name": "delete post",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/posts/8",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"posts",
+								"8"
+							]
+						},
+						"description": "- Deleted post based on id"
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/posts/8",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"posts",
+										"8"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "43"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2b-qXCzHMijM876WwV+bfqUxoCvyW4\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Mar 2024 10:08:19 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"isSuccess\": true,\n    \"message\": \"Post deleted\"\n}"
+						},
+						{
+							"name": "Post not found",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/posts/8",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"posts",
+										"8"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "46"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2e-cQMm7DOASLxCdvbrCeA+o9QJTX0\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Mar 2024 10:08:35 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"isSuccess\": false,\n    \"message\": \"Post not found\"\n}"
+						}
+					]
+				}
+			],
+			"description": "> For posts"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "id",
+			"value": "1"
+		},
+		{
+			"key": "base_url",
+			"value": "http://localhost:8080/api/v1"
+		}
+	]
+}

@@ -119,9 +119,9 @@ async function put(req, res) {
     }
 
     if (result[0] === 0) {
-        return res.status(500).json({
+        return res.status(400).json({
             isSuccess: false,
-            message: "Failed to update post",
+            message: "Post not found",
         });
     }
 
@@ -153,9 +153,9 @@ async function del(req, res) {
     }
 
     if (result === 0) {
-        return res.status(500).json({
+        return res.status(400).json({
             isSuccess: false,
-            message: "Failed to delete post",
+            message: "Post not found",
         });
     }
 

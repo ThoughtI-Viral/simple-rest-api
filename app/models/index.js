@@ -9,6 +9,7 @@ const sequelize = new Sequelize({
     password: process.env.DB_PASS,
     database: process.env.DB_NAME,
     dialect: "mysql",
+    logging: false,
 });
 
 const Users = UsersModel(sequelize);

@@ -60,25 +60,6 @@ async function post(req, res) {
 
     let result;
 
-    // check if email already exists
-    try {
-        result = await Users.findOne({
-            where: { email },
-        });
-    } catch (error) {
-        return res.status(500).json({
-            isSuccess: false,
-            message: error.message,
-        });
-    }
-
-    if (result) {
-        return res.status(400).json({
-            isSuccess: false,
-            message: "Email already exists",
-        });
-    }
-
     try {
         result = await Users.create({ name, email });
     } catch (error) {
@@ -129,9 +110,9 @@ async function put(req, res) {
     }
 
     if (result[0] === 0) {
-        return res.status(500).json({
+        return res.status(400).json({
             isSuccess: false,
-            message: "Failed to update user",
+            message: "User not found",
         });
     }
 
@@ -162,9 +143,9 @@ async function del(req, res) {
     }
 
     if (result === 0) {
-        return res.status(500).json({
+        return res.status(400).json({
             isSuccess: false,
-            message: "Failed to delete user",
+            message: "User not found",
         });
     }
 
